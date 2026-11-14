@@ -1,0 +1,12 @@
+{
+  "name": "task-track-api",
+  "version": "1.0.0",
+  "description": "A professional task tracking API for OS Lab Assignment 2",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "4.19.2"
+  }
+}
