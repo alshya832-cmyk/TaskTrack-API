@@ -59,19 +59,22 @@ docker rm tasktrack-container
 
 
 
+## Production URL
 
-## Live Deployment (VPS)
+الرابط الحي للمشروع على السيرفر http://148.230.126.66:3000
+رابط فحص المهام http://148.230.126.66:3000/tasks
+رابط فحص الحالة http://148.230.126.66:3000/health
 
-The API is deployed and running live on a VPS:
+## خطوات النشر على الـ VPS
 
-- **Live URL:** `http://148.230.126.66:3000/`
-- **Tasks Endpoint:** `http://148.230.126.66:3000/tasks`
-- **Health Check:** `http://148.230.126.66:3000/health`
-- **Server:** Hostinger VPS (KVM 2), Ubuntu 24.04
-
-### Deployment Steps
-1. Connect to the VPS via Hostinger Web Console.
-2. Verify `git` and install Docker (`docker.io`).
-3. Clone the repository: `git clone https://github.com/alshya832-cmyk/TaskTrack-API.git`
-4. Build the image: `docker build -t tasktrack-api .`
-5. Run the container: `docker run -d -p 3000:3000 --name tasktrack-container tasktrack-api`
+أدخل على تيرمنال السيرفر من المتصفح عبر Hostinger Web Terminal أو عبر SSH
+تأكد من وجود Git وثبت Docker على أوبنتو ثم شغّل الخدمة
+apt update && apt install -y docker.io
+systemctl enable --now docker
+اسحب المشروع من GitHub وادخل لمجلده
+git clone https://github.com/alshya832-cmyk/TaskTrack-API.git
+cd TaskTrack-API
+ابني صورة Docker للمشروع
+docker build -t tasktrack-api .
+شغّل الحاوية على بورت 3000
+docker run -d -p 3000:3000 --name tasktrack-container tasktrack-api 
